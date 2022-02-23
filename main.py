@@ -210,10 +210,46 @@ while redo == True:
     redo = True
 
 ### LEFT HAND REAR DOORS
-  elif x == ("68dx9"):
+  elif x == ("632"):
     print("\n---This door is for LEFT HAND REAR---")
     print(Ireg)
-    print(descRHR["68dx9"])
+    print(descLHR["632"])
+    print(round(qty, 2), "hours to complete.")
+    print(gL + " Green racks exactly to finish the " + str(shp) + " shipping rack(s)."" \nOr " + gL_rnd + " full green racks with " + str(xtragL) + " extra " + prt +" to spare.")
+    print("\nInput another order and amount:")
+    redo = True
+
+  elif x == ("652"):
+    print("\n---This door is for LEFT HAND REAR---")
+    print(Ireg)
+    print(descLHR["652"])
+    print(round(qty, 2), "hours to complete.")
+    print(gL + " Green racks exactly to finish the " + str(shp) + " shipping rack(s)."" \nOr " + gL_rnd + " full green racks with " + str(xtragL) + " extra " + prt +" to spare.")
+    print("\nInput another order and amount:")
+    redo = True
+
+  elif x == ("662"):
+    print("\n---This door is for LEFT HAND REAR---")
+    print(Ireg)
+    print(descLHR["662"])
+    print(round(qty, 2), "hours to complete.")
+    print(gL + " Green racks exactly to finish the " + str(shp) + " shipping rack(s)."" \nOr " + gL_rnd + " full green racks with " + str(xtragL) + " extra " + prt +" to spare.")
+    print("\nInput another order and amount:")
+    redo = True
+
+  elif x == ("65x9"):
+    print("\n---This door is for LEFT HAND REAR---")
+    print(Ireg)
+    print(descLHR["65x9"])
+    print(round(qty, 2), "hours to complete.")
+    print(gL + " Green racks exactly to finish the " + str(shp) + " shipping rack(s)."" \nOr " + gL_rnd + " full green racks with " + str(xtragL) + " extra " + prt +" to spare.")
+    print("\nInput another order and amount:")
+    redo = True
+
+  elif x == ("66x9"):
+    print("\n---This door is for LEFT HAND REAR---")
+    print(Ireg)
+    print(descLHR["66x9"])
     print(round(qty, 2), "hours to complete.")
     print(gL + " Green racks exactly to finish the " + str(shp) + " shipping rack(s)."" \nOr " + gL_rnd + " full green racks with " + str(xtragL) + " extra " + prt +" to spare.")
     print("\nInput another order and amount:")
