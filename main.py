@@ -1,14 +1,37 @@
 import math
 import datetime
-tdy = datetime.datetime.now()
-print("Today is " + tdy.strftime("%A, %x") )
+import pytz
+
+easternTime = pytz.timezone('US/Eastern')
+tdy = datetime.datetime.now(easternTime)
+tdy_date = datetime.datetime.now()
+ttt = int(tdy_date.strftime("%d"))
+print(ttt)
+
+st_ord = "st"
+nd_ord = "nd"
+rd_ord = "rd"
+th_ord = "th"
+
+if ttt == 1 or ttt == 21 or ttt == 31:
+  ord = st_ord
+elif ttt == 2 or ttt == 22:
+  ord = nd_ord
+elif ttt == 3 or ttt == 23:
+  ord = rd_ord
+else:
+  ord = th_ord
+
+  
+print("Today is " + tdy.strftime("%A, %B %d" + ord + " %Y. Current time: %H:%M %p"))
 
 ### EDIT THIS WHEN YOU UPDATE THE CODE TO WORK FOR OTHER LINES
-print("\nWorks for RHF and RHR only")
+print("\nWorks for RHF, RHR, LHF, and LHR")
 print("Use lower case letters e.g. 101x9, NOT 101X9")
 print("Will show: hours needed to complete an order")
 print("Will show: componets needed")
 print("Will show: Amount of green/blue racks needed")
+print("If something isn't working, let me know")
 ### EDIT THIS WHEN YOU UPDATE THE CODE TO WORK FOR OTHER LINES
 
 print("\nWhat is your order and amount?")
@@ -135,8 +158,7 @@ while redo == True:
     print(bL + " Blue racks exactly to finish the " + str(shp) + " shipping rack(s)."" \nOr " + bL_rnd + " full blue racks with " + str(xtrabL) + " extra " + prt +" to spare.")
     redo = True
 
- ### RIGHT HAND REAR DOORS
-    
+ ### RIGHT HAND REAR DOORS  
   elif x == ("702"):
     print("\n---This door is for RIGHT HAND REAR---")
     print(Ireg)
@@ -255,8 +277,6 @@ while redo == True:
     print("\nInput another order and amount:")
     redo = True
     
-  
-
 ### LEFT HAND FRONT DOORS
   elif x ==("401x9"):
     print("\n---This door is for LEFT HAND FRONT---")
