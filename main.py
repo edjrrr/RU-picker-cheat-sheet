@@ -1,12 +1,13 @@
 import math
 import datetime
 import pytz
+import timedelta
 
 easternTime = pytz.timezone('US/Eastern')
 tdy = datetime.datetime.now(easternTime)
 tdy_date = datetime.datetime.now()
 ttt = int(tdy_date.strftime("%d"))
-print(ttt)
+
 
 st_ord = "st"
 nd_ord = "nd"
@@ -27,7 +28,6 @@ print("Today is " + tdy.strftime("%A, %B %d" + ord + " %Y. Current time: %H:%M %
 
 ### EDIT THIS WHEN YOU UPDATE THE CODE TO WORK FOR OTHER LINES
 print("\nWorks for RHF, RHR, LHF, and LHR")
-print("Use lower case letters e.g. 101x9, NOT 101X9")
 print("Will show: hours needed to complete an order")
 print("Will show: componets needed")
 print("Will show: Amount of green/blue racks needed")
@@ -85,7 +85,7 @@ descLHF ={
 redo = True
 
 while redo == True:
-  x = input("\nOrder: ")
+  x = input("\nOrder: ").lower()
   y = float(input("Amount: "))
   bL = str(round(y / 20, 2))
   gL = str(round(y / 16, 2))
@@ -108,273 +108,152 @@ while redo == True:
     qty = (y / 28) * .56
     Ireg = ""
     
-###RIGHT HAND FRONT DOORS
-  if x == ("101x9"):
-    print("\n---This door is for RIGHT HAND FRONT---")
+  def f_Func():
+    if x in descRHF:
+      print("\n---This door is for RIGHT HAND FRONT---")
+      print(descRHF[x])
+    elif x in descLHF:
+      print("\n---This door is for LEFT HAND FRONT---")
+      print(descLHF[x])
     print(Ireg)
-    print(descRHF["101x9"])
     print(round(qty, 2), "hours to complete.")
     print(bL + " Blue racks exactly to finish the " + str(shp) + " shipping rack(s)."" \nOr " + bL_rnd + " full blue racks with " + str(xtrabL) + " extra " + prt +" to spare.")
+    
+  
+  def r_Func():
+    if x in descRHR:
+      print("\n---This door is for RIGHT HAND REAR---")
+      print(descRHR[x])
+    elif x in descLHR:
+      print("\n---This door is for LEFT HAND REAR---")
+      print(descLHR[x])
+    print(Ireg)
+    print(round(qty, 2), "hours to complete.")
+    print(gL + " Green racks exactly to finish the " + str(shp) + " shipping rack(s)."" \nOr " + gL_rnd + " full green racks with " + str(xtragL) + " extra " + prt +" to spare.")
+
+
+  
+###RIGHT HAND FRONT DOORS
+  if x == ("101x9"):
+    f_Func()
     redo = True
     
   elif x == ("101a3"):
-    print("\n---This door is for RIGHT HAND FRONT---")
-    print(Ireg)
-    print(descRHF["101a3"])
-    print(round(qty, 2), "hours to complete.")
-    print(bL + " Blue racks exactly to finish the " + str(shp) + " shipping rack(s)."" \nOr " + bL_rnd + " full blue racks with " + str(xtrabL) + " extra " + prt +" to spare.")
+    f_Func()
     redo = True
     
   elif x == ("941a3"):
-    print("\n---This door is for RIGHT HAND FRONT---")
-    print(Ireg)
-    print(descRHF["941a3"])
-    print(round(qty, 2), "hours to complete.")
-    print(bL + " Blue racks exactly to finish the " + str(shp) + " shipping rack(s)."" \nOr " + bL_rnd + " full blue racks with " + str(xtrabL) + " extra " + prt +" to spare.")
-    print("\nInput another order and amount:")
+    f_Func()
     redo = True
     
   elif x == ("461k5"):
-    print("\n---This door is for RIGHT HAND FRONT---")
-    print(Ireg)
-    print(descRHF["461k5"])
-    print(round(qty, 2), "hours to complete.")
-    print(bL + " Blue racks exactly to finish the " + str(shp) + " shipping rack(s)."" \nOr " + bL_rnd + " full blue racks with " + str(xtrabL) + " extra " + prt +" to spare.")
+    f_Func()
     redo = True
     
   elif x == ("451a3"):
-    print("\n---This door is for RIGHT HAND FRONT---")
-    print(Ireg)
-    print(descRHF["451a3"])
-    print(round(qty, 2), "hours to complete.")
-    print(bL + " Blue racks exactly to finish the " + str(shp) + " shipping rack(s)."" \nOr " + bL_rnd + " full blue racks with " + str(xtrabL) + " extra " + prt +" to spare.")
+    f_Func()
     redo = True
     
   elif x == ("351x9"):
-    print("\n---This door is for RIGHT HAND FRONT---")
-    print(Ireg)
-    print(descRHF["351x9"])
-    print(round(qty, 2), "hours to complete.")
-    print(bL + " Blue racks exactly to finish the " + str(shp) + " shipping rack(s)."" \nOr " + bL_rnd + " full blue racks with " + str(xtrabL) + " extra " + prt +" to spare.")
+    f_Func()
     redo = True
 
  ### RIGHT HAND REAR DOORS  
   elif x == ("702"):
-    print("\n---This door is for RIGHT HAND REAR---")
-    print(Ireg)
-    print(descRHR["702"])
-    print(round(qty, 2), "hours to complete.")
-    print(gL + " Green racks exactly to finish the " + str(shp) + " shipping rack(s)."" \nOr " + gL_rnd + " full green racks with " + str(xtragL) + " extra " + prt +" to spare.")
-    print("\nInput another order and amount:")
+    r_Func()
     redo = True
 
   elif x == ("712"):
-    print("\n---This door is for RIGHT HAND REAR---")
-    print(Ireg)
-    print(descRHR["712"])
-    print(round(qty, 2), "hours to complete.")
-    print(gL + " Green racks exactly to finish the " + str(shp) + " shipping rack(s)."" \nOr " + gL_rnd + " full green racks with " + str(xtragL) + " extra " + prt +" to spare.")
-    print("\nInput another order and amount:")
+    r_Func()
     redo = True
 
   elif x == ("70dx9"):
-    print("\n---This door is for RIGHT HAND REAR---")
-    print(Ireg)
-    print(descRHR["70dx9"])
-    print(round(qty, 2), "hours to complete.")
-    print(gL + " Green racks exactly to finish the " + str(shp) + " shipping rack(s)."" \nOr " + gL_rnd + " full green racks with " + str(xtragL) + " extra " + prt +" to spare.")
-    print("\nInput another order and amount:")
+    r_Func()
     redo = True
 
   elif x == ("71dx9"):
-    print("\n---This door is for RIGHT HAND REAR---")
-    print(Ireg)
-    print(descRHR["71dx9"])
-    print(round(qty, 2), "hours to complete.")
-    print(gL + " Green racks exactly to finish the " + str(shp) + " shipping rack(s)."" \nOr " + gL_rnd + " full green racks with " + str(xtragL) + " extra " + prt +" to spare.")
-    print("\nInput another order and amount:")
+    r_Func()
     redo = True
 
   elif x == ("701k5"):
-    print("\n---This door is for RIGHT HAND REAR---")
-    print(Ireg)
-    print(descRHR["701k5"])
-    print(round(qty, 2), "hours to complete.")
-    print(gL + " Green racks exactly to finish the " + str(shp) + " shipping rack(s)."" \nOr " + gL_rnd + " full green racks with " + str(xtragL) + " extra " + prt +" to spare.")
-    print("\nInput another order and amount:")
+    r_Func()
     redo = True
 
   elif x == ("711k5"):
-    print("\n---This door is for RIGHT HAND REAR---")
-    print(Ireg)
-    print(descRHR["711k5"])
-    print(round(qty, 2), "hours to complete.")
-    print(gL + " Green racks exactly to finish the " + str(shp) + " shipping rack(s)."" \nOr " + gL_rnd + " full green racks with " + str(xtragL) + " extra " + prt +" to spare.")
-    print("\nInput another order and amount:")
+    r_Func()
     redo = True
 
   elif x == ("682"):
-    print("\n---This door is for RIGHT HAND REAR---")
-    print(Ireg)
-    print(descRHR["682"])
-    print(round(qty, 2), "hours to complete.")
-    print(gL + " Green racks exactly to finish the " + str(shp) + " shipping rack(s)."" \nOr " + gL_rnd + " full green racks with " + str(xtragL) + " extra " + prt +" to spare.")
-    print("\nInput another order and amount:")
+    r_Func()
     redo = True
 
   elif x == ("68dx9"):
-    print("\n---This door is for RIGHT HAND REAR---")
-    print(Ireg)
-    print(descRHR["68dx9"])
-    print(round(qty, 2), "hours to complete.")
-    print(gL + " Green racks exactly to finish the " + str(shp) + " shipping rack(s)."" \nOr " + gL_rnd + " full green racks with " + str(xtragL) + " extra " + prt +" to spare.")
-    print("\nInput another order and amount:")
+    r_Func()
     redo = True
 
 ### LEFT HAND REAR DOORS
-  elif x == ("632"):
-    print("\n---This door is for LEFT HAND REAR---")
-    print(Ireg)
-    print(descLHR["632"])
-    print(round(qty, 2), "hours to complete.")
-    print(gL + " Green racks exactly to finish the " + str(shp) + " shipping rack(s)."" \nOr " + gL_rnd + " full green racks with " + str(xtragL) + " extra " + prt +" to spare.")
-    print("\nInput another order and amount:")
+    r_Func()
     redo = True
 
   elif x == ("652"):
-    print("\n---This door is for LEFT HAND REAR---")
-    print(Ireg)
-    print(descLHR["652"])
-    print(round(qty, 2), "hours to complete.")
-    print(gL + " Green racks exactly to finish the " + str(shp) + " shipping rack(s)."" \nOr " + gL_rnd + " full green racks with " + str(xtragL) + " extra " + prt +" to spare.")
-    print("\nInput another order and amount:")
+    r_Func()
     redo = True
 
   elif x == ("662"):
-    print("\n---This door is for LEFT HAND REAR---")
-    print(Ireg)
-    print(descLHR["662"])
-    print(round(qty, 2), "hours to complete.")
-    print(gL + " Green racks exactly to finish the " + str(shp) + " shipping rack(s)."" \nOr " + gL_rnd + " full green racks with " + str(xtragL) + " extra " + prt +" to spare.")
-    print("\nInput another order and amount:")
+    r_Func()
     redo = True
 
   elif x == ("65x9"):
-    print("\n---This door is for LEFT HAND REAR---")
-    print(Ireg)
-    print(descLHR["65x9"])
-    print(round(qty, 2), "hours to complete.")
-    print(gL + " Green racks exactly to finish the " + str(shp) + " shipping rack(s)."" \nOr " + gL_rnd + " full green racks with " + str(xtragL) + " extra " + prt +" to spare.")
-    print("\nInput another order and amount:")
+    r_Func()
     redo = True
 
   elif x == ("66x9"):
-    print("\n---This door is for LEFT HAND REAR---")
-    print(Ireg)
-    print(descLHR["66x9"])
-    print(round(qty, 2), "hours to complete.")
-    print(gL + " Green racks exactly to finish the " + str(shp) + " shipping rack(s)."" \nOr " + gL_rnd + " full green racks with " + str(xtragL) + " extra " + prt +" to spare.")
-    print("\nInput another order and amount:")
+    r_Func()
     redo = True
     
 ### LEFT HAND FRONT DOORS
   elif x ==("401x9"):
-    print("\n---This door is for LEFT HAND FRONT---")
-    print(Ireg)
-    print(descLHF["401x9"])
-    print(round(qty, 2), "hours to complete.")
-    print(bL + " Blue racks exactly to finish the " + str(shp) + " shipping rack(s)."" \nOr " + bL_rnd + " full blue racks with " + str(xtrabL) + " extra " + prt +" to spare.")
-    print("\nInput another order and amount:")
+    f_Func()
     redo == True
 
   elif x ==("431x9"):
-    print("\n---This door is for LEFT HAND FRONT---")
-    print(Ireg)
-    print(descLHF["431x9"])
-    print(round(qty, 2), "hours to complete.")
-    print(bL + " Blue racks exactly to finish the " + str(shp) + " shipping rack(s)."" \nOr " + bL_rnd + " full blue racks with " + str(xtrabL) + " extra " + prt +" to spare.")
-    print("\nInput another order and amount:")
+    f_Func()
     redo == True
 
   elif x ==("451x9"):
-    print("\n---This door is for LEFT HAND FRONT---")
-    print(Ireg)
-    print(descLHF["451x9"])
-    print(round(qty, 2), "hours to complete.")
-    print(bL + " Blue racks exactly to finish the " + str(shp) + " shipping rack(s)."" \nOr " + bL_rnd + " full blue racks with " + str(xtrabL) + " extra " + prt +" to spare.")
-    print("\nInput another order and amount:")
+    f_Func()
     redo == True
 
   elif x ==("311x9"):
-    print("\n---This door is for LEFT HAND FRONT---")
-    print(Ireg)
-    print(descLHF["311x9"])
-    print(round(qty, 2), "hours to complete.")
-    print(bL + " Blue racks exactly to finish the " + str(shp) + " shipping rack(s)."" \nOr " + bL_rnd + " full blue racks with " + str(xtrabL) + " extra " + prt +" to spare.")
-    print("\nInput another order and amount:")
+    f_Func()
     redo == True
     
   elif x ==("381x9"):
-    print("\n---This door is for LEFT HAND FRONT---")
-    print(Ireg)
-    print(descLHF["431x9"])
-    print(round(qty, 2), "hours to complete.")
-    print(bL + " Blue racks exactly to finish the " + str(shp) + " shipping rack(s)."" \nOr " + bL_rnd + " full blue racks with " + str(xtrabL) + " extra " + prt +" to spare.")
-    print("\nInput another order and amount:")
+    f_Func()
     redo == True
 
   elif x ==("501x9"):
-    print("\n---This door is for LEFT HAND FRONT---")
-    print(Ireg)
-    print(descLHF["501x9"])
-    print(round(qty, 2), "hours to complete.")
-    print(bL + " Blue racks exactly to finish the " + str(shp) + " shipping rack(s)."" \nOr " + bL_rnd + " full blue racks with " + str(xtrabL) + " extra " + prt +" to spare.")
-    print("\nInput another order and amount:")
+    f_Func()
     redo == True
 
   elif x ==("621k5"):
-    print("\n---This door is for LEFT HAND FRONT---")
-    print(Ireg)
-    print(descLHF["621k5"])
-    print(round(qty, 2), "hours to complete.")
-    print(bL + " Blue racks exactly to finish the " + str(shp) + " shipping rack(s)."" \nOr " + bL_rnd + " full blue racks with " + str(xtrabL) + " extra " + prt +" to spare.")
-    print("\nInput another order and amount:")
+    f_Func()
     redo == True
 
   elif x ==("491a3"):
-    print("\n---This door is for LEFT HAND FRONT---")
-    print(Ireg)
-    print(descLHF["491a3"])
-    print(round(qty, 2), "hours to complete.")
-    print(bL + " Blue racks exactly to finish the " + str(shp) + " shipping rack(s)."" \nOr " + bL_rnd + " full blue racks with " + str(xtrabL) + " extra " + prt +" to spare.")
-    print("\nInput another order and amount:")
+    f_Func()
     redo == True
 
   elif x ==("451a3"):
-    print("\n---This door is for LEFT HAND FRONT---")
-    print(Ireg)
-    print(descLHF["451a3"])
-    print(round(qty, 2), "hours to complete.")
-    print(bL + " Blue racks exactly to finish the " + str(shp) + " shipping rack(s)."" \nOr " + bL_rnd + " full blue racks with " + str(xtrabL) + " extra " + prt +" to spare.")
-    print("\nInput another order and amount:")
+    f_Func()
     redo == True
 
   elif x ==("431a3"):
-    print("\n---This door is for LEFT HAND FRONT---")
-    print(Ireg)
-    print(descLHF["431a3"])
-    print(round(qty, 2), "hours to complete.")
-    print(bL + " Blue racks exactly to finish the " + str(shp) + " shipping rack(s)."" \nOr " + bL_rnd + " full blue racks with " + str(xtrabL) + " extra " + prt +" to spare.")
-    print("\nInput another order and amount:")
+    f_Func()
     redo == True
 
   elif x ==("931a3"):
-    print("\n---This door is for LEFT HAND FRONT---")
-    print(Ireg)
-    print(descLHF["931a3"])
-    print(round(qty, 2), "hours to complete.")
-    print(bL + " Blue racks exactly to finish the " + str(shp) + " shipping rack(s)."" \nOr " + bL_rnd + " full blue racks with " + str(xtrabL) + " extra " + prt +" to spare.")
-    print("\nInput another order and amount:")
+    f_Func()
     redo == True
 
   else:
